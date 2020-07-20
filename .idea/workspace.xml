@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="321c5031-18e4-48ae-99d4-f4e8b2a9fefc" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/opt/go" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1evmQSgCuzHPY1WhQALYzV6gwSX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pkg/controller/workloadplan" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/controller/workloadplan" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/gzlj/appplan/cmd/manager" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="appplan" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="WATCH_NAMESPACE" value="default" />
+        <env name="KUBECONFIG" value="$USER_HOME$/.kube/config" />
+      </envs>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/manager/main.go" />
+      <package value="github.com/gzlj/appplan/cmd/manager" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/gzlj/appplan/cmd/manager" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>direct</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="316" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595223335762">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state x="316" y="114" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1716.856@0.28.1716.856" timestamp="1595216659659" />
+    <state x="316" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1716.865@0.28.1716.865" timestamp="1595223335762" />
+    <state width="1106" height="557" key="DebuggerActiveHint" timestamp="1595239435109">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1106" height="557" key="DebuggerActiveHint/0.28.1716.865@0.28.1716.865" timestamp="1595239435109" />
+    <state x="595" y="180" width="515" height="562" key="EnvironmentVariablesDialog" timestamp="1595217665199">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state x="595" y="178" width="515" height="562" key="EnvironmentVariablesDialog/0.28.1716.856@0.28.1716.856" timestamp="1595216233675" />
+    <state x="595" y="180" key="EnvironmentVariablesDialog/0.28.1716.865@0.28.1716.865" timestamp="1595217665199" />
+    <state width="1668" height="302" key="GridCell.Tab.0.bottom" timestamp="1595242460555">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="249" key="GridCell.Tab.0.bottom/0.28.1716.856@0.28.1716.856" timestamp="1595216262673" />
+    <state width="1668" height="302" key="GridCell.Tab.0.bottom/0.28.1716.865@0.28.1716.865" timestamp="1595242460555" />
+    <state width="1668" height="302" key="GridCell.Tab.0.center" timestamp="1595242460555">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="249" key="GridCell.Tab.0.center/0.28.1716.856@0.28.1716.856" timestamp="1595216262672" />
+    <state width="1668" height="302" key="GridCell.Tab.0.center/0.28.1716.865@0.28.1716.865" timestamp="1595242460555" />
+    <state width="1668" height="302" key="GridCell.Tab.0.left" timestamp="1595242460553">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="249" key="GridCell.Tab.0.left/0.28.1716.856@0.28.1716.856" timestamp="1595216262671" />
+    <state width="1668" height="302" key="GridCell.Tab.0.left/0.28.1716.865@0.28.1716.865" timestamp="1595242460553" />
+    <state width="1668" height="302" key="GridCell.Tab.0.right" timestamp="1595242460555">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="249" key="GridCell.Tab.0.right/0.28.1716.856@0.28.1716.856" timestamp="1595216262672" />
+    <state width="1668" height="302" key="GridCell.Tab.0.right/0.28.1716.865@0.28.1716.865" timestamp="1595242460555" />
+    <state width="1668" height="302" key="GridCell.Tab.1.bottom" timestamp="1595242459285">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="302" key="GridCell.Tab.1.bottom/0.28.1716.865@0.28.1716.865" timestamp="1595242459285" />
+    <state width="1668" height="302" key="GridCell.Tab.1.center" timestamp="1595242459283">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="302" key="GridCell.Tab.1.center/0.28.1716.865@0.28.1716.865" timestamp="1595242459283" />
+    <state width="1668" height="302" key="GridCell.Tab.1.left" timestamp="1595242459282">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="302" key="GridCell.Tab.1.left/0.28.1716.865@0.28.1716.865" timestamp="1595242459282" />
+    <state width="1668" height="302" key="GridCell.Tab.1.right" timestamp="1595242459284">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state width="1668" height="302" key="GridCell.Tab.1.right/0.28.1716.865@0.28.1716.865" timestamp="1595242459284" />
+    <state x="492" y="57" width="722" height="813" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595228801576">
+      <screen x="0" y="28" width="1716" height="865" />
+    </state>
+    <state x="492" y="57" width="722" height="813" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.28.1716.865@0.28.1716.865" timestamp="1595228801576" />
+    <state x="511" y="28" width="694" height="856" key="find.popup" timestamp="1595216161742">
+      <screen x="0" y="28" width="1716" height="856" />
+    </state>
+    <state x="511" y="28" width="694" height="856" key="find.popup/0.28.1716.856@0.28.1716.856" timestamp="1595216161742" />
+  </component>
+</project>

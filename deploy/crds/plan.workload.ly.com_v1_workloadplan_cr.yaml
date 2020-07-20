@@ -1,0 +1,7 @@
+apiVersion: plan.workload.ly.com/v1
+kind: WorkLoadPlan
+metadata:
+  name: example-workloadplan
+spec:
+  # Add fields here
+  size: 3
