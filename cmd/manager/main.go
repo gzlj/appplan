@@ -103,7 +103,7 @@ func main() {
 
 	log.Info("Registering Components.")
 
-	// Setup Scheme for all resources
+	// Setup Scheme for all k8s
 	if err := apis.AddToScheme(mgr.GetScheme()); err != nil {
 		log.Error(err, "")
 		os.Exit(1)
@@ -130,7 +130,7 @@ func main() {
 		log.Info("Could not create metrics Service", "error", err.Error())
 	}
 
-	// CreateServiceMonitors will automatically create the prometheus-operator ServiceMonitor resources
+	// CreateServiceMonitors will automatically create the prometheus-operator ServiceMonitor k8s
 	// necessary to configure Prometheus to scrape metrics from this operator.
 	services := []*v1.Service{service}
 	_, err = metrics.CreateServiceMonitors(cfg, namespace, services)

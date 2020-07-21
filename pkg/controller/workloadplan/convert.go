@@ -11,6 +11,8 @@ func ConvertFromCr(plan *planv1.WorkLoadPlan) IPlan {
 	p.WorkLoadPlan = plan
 	p.waitSeconds = 15
 	if plan.Spec.Cron != nil {
+
+
 		if plan.Spec.Cron.Period == CRON_PERIOD_MONTH {
 			p.waitSeconds = 30
 		} else if plan.Spec.Cron.Period == CRON_PERIOD_YEAR {

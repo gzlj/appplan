@@ -259,8 +259,12 @@ func (p *NormalPlan) syncReplicas(workloads []*v1.WorkLoad) {
 			if err != nil {
 				continue
 			}
+			err = ScaleUpDeploymentReplicas(&oldDeploy)
+			if err != nil {
+				continue
+			}
 			//ANNOTATION_LAST_REPLICAS_KEY
-			if *oldDeploy.Spec.Replicas != 0 {
+			/*if *oldDeploy.Spec.Replicas != 0 {
 				continue
 			}
 			var size int32 = 1
@@ -276,14 +280,18 @@ func (p *NormalPlan) syncReplicas(workloads []*v1.WorkLoad) {
 			err = K8sClient.Update(context.TODO(), &oldDeploy)
 			if err != nil {
 				log.Info("Failed to update deployment %s/%s", namespace, wl.Name)
-			}
+			}*/
 		case WORKLOADTYPE_STATEFULSET:
 			oldDeploy := appsv1.StatefulSet{}
 			err = K8sClient.Get(context.TODO(), key, &oldDeploy)
 			if err != nil {
 				continue
 			}
-			//ANNOTATION_LAST_REPLICAS_KEY
+			err = ScaleUpStatefulSetZeroReplicas(&oldDeploy)
+			if err != nil {
+				continue
+			}
+			/*//ANNOTATION_LAST_REPLICAS_KEY
 			if *oldDeploy.Spec.Replicas != 0 {
 				continue
 			}
@@ -299,14 +307,18 @@ func (p *NormalPlan) syncReplicas(workloads []*v1.WorkLoad) {
 			err = K8sClient.Update(context.TODO(), &oldDeploy)
 			if err != nil {
 				log.Info("Failed to update deployment %s/%s", namespace, wl.Name)
-			}
+			}*/
 		case WORKLOADTYPE_DAEMONSET:
 			oldDeploy := appsv1.DaemonSet{}
 			err = K8sClient.Get(context.TODO(), key, &oldDeploy)
 			if err != nil {
 				continue
 			}
-			nodeSelector := oldDeploy.Spec.Template.Spec.NodeSelector
+			err = ScaleUpDaemonSetReplicas(&oldDeploy)
+			if err != nil {
+				continue
+			}
+			/*nodeSelector := oldDeploy.Spec.Template.Spec.NodeSelector
 			if nodeSelector == nil {
 				return
 			}
@@ -314,6 +326,11 @@ func (p *NormalPlan) syncReplicas(workloads []*v1.WorkLoad) {
 			err = K8sClient.Update(context.TODO(), &oldDeploy)
 			if err != nil {
 				log.Info("Failed to update deployment %s/%s", namespace, wl.Name)
+			}*/
+		case WORKLOADTYPE_HELM:
+			errs := SetHelmWorkloadReplicasZero(namespace, wl.Name, true)
+			for _, tmpErr := range errs {
+				log.Info(tmpErr.Error())
 			}
 		default:
 		}
@@ -329,7 +346,7 @@ func (p *NormalPlan) setReplicasZero(workloads []*v1.WorkLoad) {
 		var err error
 		switch workLoadType {
 		case WORKLOADTYPE_DEPLOYMENT:
-			log.Info("------------------------deployment")
+			//log.Info("------------------------deployment")
 			var err error
 			key := client.ObjectKey{Namespace: namespace, Name: wl.Name}
 			oldDeploy := appsv1.Deployment{}
@@ -337,28 +354,33 @@ func (p *NormalPlan) setReplicasZero(workloads []*v1.WorkLoad) {
 			if err != nil {
 				continue
 			}
-			var size int32 = 0
+			/*var size int32 = 0
 			oldDeploy.Spec.Replicas = &size
 			err = K8sClient.Update(context.TODO(), &oldDeploy)
 			if err != nil {
 				//log.Info("Failed to update deployment %s/%s", namespace, wl.Name)
-			}
+			}*/
+			err = SetDeploymentZeroReplicas(&oldDeploy)
 		case WORKLOADTYPE_STATEFULSET:
 			oldDeploy := appsv1.StatefulSet{}
 			err = K8sClient.Get(context.TODO(), key, &oldDeploy)
 			if err != nil {
 				continue
 			}
-			//ANNOTATION_LAST_REPLICAS_KEY
-			if *oldDeploy.Spec.Replicas != 0 {
+			err = SetStatefulSetZeroReplicas(&oldDeploy)
+			if err != nil {
 				continue
 			}
-			var size int32 = 0
+			//ANNOTATION_LAST_REPLICAS_KEY
+			/*if *oldDeploy.Spec.Replicas != 0 {
+				continue
+			}*/
+			/*var size int32 = 0
 			oldDeploy.Spec.Replicas = &size
 			err = K8sClient.Update(context.TODO(), &oldDeploy)
 			if err != nil {
 				log.Info("Failed to update deployment %s/%s", namespace, wl.Name)
-			}
+			}*/
 
 		case WORKLOADTYPE_DAEMONSET:
 			oldDeploy := appsv1.DaemonSet{}
@@ -366,14 +388,18 @@ func (p *NormalPlan) setReplicasZero(workloads []*v1.WorkLoad) {
 			if err != nil {
 				continue
 			}
-			if oldDeploy.Spec.Template.Spec.NodeSelector == nil {
+			err = SetDaemonSetZeroReplicas(&oldDeploy)
+			if err != nil {
+				continue
+			}
+			/*if oldDeploy.Spec.Template.Spec.NodeSelector == nil {
 				oldDeploy.Spec.Template.Spec.NodeSelector = make(map[string]string)
 			}
 			oldDeploy.Spec.Template.Spec.NodeSelector[DAEMONSET_NODE_SELECTOR_STOP] = "true"
 			err = K8sClient.Update(context.TODO(), &oldDeploy)
 			if err != nil {
 				log.Info("Failed to update deployment %s/%s", namespace, wl.Name)
-			}
+			}*/
 			/*nodeSelector := oldDeploy.Spec.Template.Spec.NodeSelector
 			if nodeSelector == nil {
 				nodeSelector = make(map[string]string)
@@ -390,10 +416,21 @@ func (p *NormalPlan) setReplicasZero(workloads []*v1.WorkLoad) {
 			if err != nil {
 				log.Info("Failed to update deployment %s/%s", namespace, wl.Name)
 			}*/
+			case WORKLOADTYPE_HELM:
+				errs := SetHelmWorkloadReplicasZero(namespace, wl.Name, false)
+				for _, tmpErr := range errs {
+					log.Info(tmpErr.Error())
+				}
 		default:
 		}
 	}
 }
+
+
+
+//-l app.kubernetes.io/managed-by=Helm,release=confused-land
+
+
 
 
 func (p *NormalPlan) syncWorkloadsReplicas() (err error){

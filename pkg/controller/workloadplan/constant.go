@@ -4,6 +4,7 @@ const (
 	WORKLOADTYPE_DEPLOYMENT = "DEPLOYMENT"
 	WORKLOADTYPE_STATEFULSET = "STATEFULSET"
 	WORKLOADTYPE_DAEMONSET = "DAEMONSET"
+	WORKLOADTYPE_HELM = "HELM"
 
 	CRON_PERIOD_YEAR = "YEAR"
 	CRON_PERIOD_DAY = "DAY"
@@ -12,4 +13,11 @@ const (
 	ANNOTATION_LAST_REPLICAS_KEY = "lastReplicas"
 
 	DAEMONSET_NODE_SELECTOR_STOP = "daemonSetShouldStop"
+
+	//app.kubernetes.io/managed-by
+	LABEL_KEY_HELM = "app.kubernetes.io/managed-by"
+	//Helm
+	LABEL_VALUE_HELM = "Helm"
+	//release
+	LABEL_KEY_HELM_RELEASE = "release"
 )
